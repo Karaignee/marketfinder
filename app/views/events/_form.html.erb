@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :start %><br />
-    <%= f.number_field :start %>
+    <%= f.number_field :start, :class => "date" %>
   </div>
   <div class="field">
     <%= f.label :end %><br />
@@ -31,14 +31,8 @@
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
+ 
+   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
