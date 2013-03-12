@@ -1,261 +1,222 @@
-== Welcome to Rails
-
-Rails is a web-application framework that includes everything needed to create
-database-backed web applications according to the Model-View-Control pattern.
-
-This pattern splits the view (also called the presentation) into "dumb"
-templates that are primarily responsible for inserting pre-built data in between
-HTML tags. The model contains the "smart" domain objects (such as Account,
-Product, Person, Post) that holds all the business logic and knows how to
-persist themselves to a database. The controller handles the incoming requests
-(such as Save New Account, Update Product, Show Post) by manipulating the model
-and directing data to the view.
-
-In Rails, the model is handled by what's called an object-relational mapping
-layer entitled Active Record. This layer allows you to present the data from
-database rows as objects and embellish these data objects with business logic
-methods. You can read more about Active Record in
-link:files/vendor/rails/activerecord/README.html.
-
-The controller and view are handled by the Action Pack, which handles both
-layers by its two parts: Action View and Action Controller. These two layers
-are bundled in a single package due to their heavy interdependence. This is
-unlike the relationship between the Active Record and Action Pack that is much
-more separate. Each of these packages can be used independently outside of
-Rails. You can read more about Action Pack in
-link:files/vendor/rails/actionpack/README.html.
+== Welcome to my second Rails App.
+This is called Market finder and is a semester 2 project for 
+my Web Technologies HETAC/NFQ Level 8 honours degree.
+Here is the project proposal, minus diagrams!
 
 
-== Getting Started
 
-1. At the command prompt, create a new Rails application:
-       <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
-
-2. Change directory to <tt>myapp</tt> and start the web server:
-       <tt>cd myapp; rails server</tt> (run with --help for options)
-
-3. Go to http://localhost:3000/ and you'll see:
-       "Welcome aboard: You're riding Ruby on Rails!"
-
-4. Follow the guidelines to start developing your application. You can find
-the following resources handy:
-
-* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
-* Ruby on Rails Tutorial Book: http://www.railstutorial.org/
+1. Objectives
 
 
-== Debugging Rails
-
-Sometimes your application goes wrong. Fortunately there are a lot of tools that
-will help you debug it and get it back on the rails.
-
-First area to check is the application log files. Have "tail -f" commands
-running on the server.log and development.log. Rails will automatically display
-debugging and runtime information to these files. Debugging info will also be
-shown in the browser on requests from 127.0.0.1.
-
-You can also log your own messages directly into the log file from your code
-using the Ruby logger class from inside your controllers. Example:
-
-  class WeblogController < ActionController::Base
-    def destroy
-      @weblog = Weblog.find(params[:id])
-      @weblog.destroy
-      logger.info("#{Time.now} Destroyed Weblog ID ##{@weblog.id}!")
-    end
-  end
-
-The result will be a message in your log file along the lines of:
-
-  Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1!
-
-More information on how to use the logger is at http://www.ruby-doc.org/core/
-
-Also, Ruby documentation can be found at http://www.ruby-lang.org/. There are
-several books available online as well:
-
-* Programming Ruby: http://www.ruby-doc.org/docs/ProgrammingRuby/ (Pickaxe)
-* Learn to Program: http://pine.fm/LearnToProgram/ (a beginners guide)
-
-These two books will bring you up to speed on the Ruby language and also on
-programming in general.
 
 
-== Debugger
 
-Debugger support is available through the debugger command when you start your
-Mongrel or WEBrick server with --debugger. This means that you can break out of
-execution at any point in the code, investigate and change the model, and then,
-resume execution! You need to install ruby-debug to run the server in debugging
-mode. With gems, use <tt>sudo gem install ruby-debug</tt>. Example:
+Need groceries but can’t face the bright lights of Tesco? Concerned about the environment and want 
+to source locally grown and seasonal produce? Or just want to be seen buying the hippest coffee at 
+the most bourgeois stalls?!!
 
-  class WeblogController < ActionController::Base
-    def index
-      @posts = Post.all
-      debugger
-    end
-  end
+MarketFinder helps you find out about local markets.
 
-So the controller will accept the action, run the first line, then present you
-with a IRB prompt in the server window. Here you can do things like:
+I aim to provide up to date information on Farmers Markets, Pop-Ups and Co-ops:
 
-  >> @posts.inspect
-  => "[#<Post:0x14a6be8
-          @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>,
-       #<Post:0x14a6620
-          @attributes={"title"=>"Rails", "body"=>"Only ten..", "id"=>"2"}>]"
-  >> @posts.first.title = "hello from a debugger"
-  => "hello from a debugger"
+●   the site will display “what’s on now”
+●   an event calendar will display upcoming market events
+●   users can select specific days, weeks or months on the event calendar
+●   users can use their current location, a pinned location or can select from a
+dropdown list to find out what’s on in their area
+●   users can narrow their search using both location AND date in order to plan ahead for trips
+●   both map and calendar search results will then display an event or list of events, dates, 
+times, and a brief description with image.
 
-...and even better, you can examine how your runtime objects actually work:
+Scope & limitations
+Up-to-date information will be a key feature of this service. For the purposes of this project, I 
+will directly gather event information. I will research features to facilitate interaction with 
+organisers, e.g. scheduled email or text reminders, or system access for organisers to provide 
+updates. This will need to be discussed further within a focus group setting and is currently out 
+of scope.
 
-  >> f = @posts.first
-  => #<Post:0x13630c4 @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>
-  >> f.
-  Display all 152 possibilities? (y or n)
+I will gather end-user requirements from both organisers and site users/visitors. Requirements not 
+in scope for this development will be noted, listed and researched for inclusion in later versions. 
+The features ear-marked for development in future versions are listed below, attempts will be made 
+to include the first three in this current build, time permitting:
 
-Finally, when you're ready to resume execution, you can enter "cont".
-
-
-== Console
-
-The console is a Ruby shell, which allows you to interact with your
-application's domain model. Here you'll have all parts of the application
-configured, just like it is when the application is running. You can inspect
-domain models, change values, and save to the database. Starting the script
-without arguments will launch it in the development environment.
-
-To start the console, run <tt>rails console</tt> from the application
-directory.
-
-Options:
-
-* Passing the <tt>-s, --sandbox</tt> argument will rollback any modifications
-  made to the database.
-* Passing an environment name as an argument will load the corresponding
-  environment. Example: <tt>rails console production</tt>.
-
-To reload your controllers and models after launching the console run
-<tt>reload!</tt>
-
-More information about irb can be found at:
-link:http://www.rubycentral.org/pickaxe/irb.html
+●   a weather report feature
+●   twitter plug in
+●   automation of updates from organisers
+●   a photo gallery
+●   lists of traders
+●   reviews, ratings and feedback from customers
+●   links to sites with more info.
+●   news feature for press or relevant articles.
+●   MarketFinder for mobile
+Within this project I will focus on the application’s function as an interactive event
+guide, with a database of events and event information, map and calendar features.
 
 
-== dbconsole
 
-You can go to the command line of your database directly through <tt>rails
-dbconsole</tt>. You would be connected to the database with the credentials
-defined in database.yml. Starting the script without arguments will connect you
-to the development database. Passing an argument will connect you to a different
-database, like <tt>rails dbconsole production</tt>. Currently works for MySQL,
-PostgreSQL and SQLite 3.
+2. Background
 
-== Description of Contents
 
-The default directory structure of a generated Ruby on Rails application:
 
-  |-- app
-  |   |-- assets
-  |       |-- images
-  |       |-- javascripts
-  |       `-- stylesheets
-  |   |-- controllers
-  |   |-- helpers
-  |   |-- mailers
-  |   |-- models
-  |   `-- views
-  |       `-- layouts
-  |-- config
-  |   |-- environments
-  |   |-- initializers
-  |   `-- locales
-  |-- db
-  |-- doc
-  |-- lib
-  |   `-- tasks
-  |-- log
-  |-- public
-  |-- script
-  |-- test
-  |   |-- fixtures
-  |   |-- functional
-  |   |-- integration
-  |   |-- performance
-  |   `-- unit
-  |-- tmp
-  |   |-- cache
-  |   |-- pids
-  |   |-- sessions
-  |   `-- sockets
-  `-- vendor
-      |-- assets
-          `-- stylesheets
-      `-- plugins
 
-app
-  Holds all the code that's specific to this particular application.
+Concept
+Feedback from potential end-users suggests that this clear, interactive and free desktop 
+application would be a very useful tool for customers, and even more so for organisers.
 
-app/assets
-  Contains subdirectories for images, stylesheets, and JavaScript files.
+Stemming from an interest in sustainable grocery shopping and supporting local industries, and 
+informed by writer/entrepreneur Sam Mogannam, or campaigners like Jamie Oliver and Curt Ellis, this 
+is my small contribution to improving access to good food and promoting good food channels.
 
-app/controllers
-  Holds controllers that should be named like weblogs_controller.rb for
-  automated URL mapping. All controllers should descend from
-  ApplicationController which itself descends from ActionController::Base.
 
-app/models
-  Holds models that should be named like post.rb. Models descend from
-  ActiveRecord::Base by default.
 
-app/views
-  Holds the template files for the view that should be named like
-  weblogs/index.html.erb for the WeblogsController#index action. All views use
-  eRuby syntax by default.
 
-app/views/layouts
-  Holds the template files for layouts to be used with views. This models the
-  common header/footer method of wrapping views. In your views, define a layout
-  using the <tt>layout :default</tt> and create a file named default.html.erb.
-  Inside default.html.erb, call <% yield %> to render the view using this
-  layout.
 
-app/helpers
-  Holds view helpers that should be named like weblogs_helper.rb. These are
-  generated for you automatically when using generators for controllers.
-  Helpers can be used to wrap functionality for your views into methods.
+Curt Ellis on sustainable food systems and tackling obesity:
 
-config
-  Configuration files for the Rails environment, the routing map, the database,
-  and other dependencies.
+http://www.nourishlife.org/2011/11/perpse ctive-curt-ellis-on-foodcorps/
 
-db
-  Contains the database schema in schema.rb. db/migrate contains all the
-  sequence of Migrations for your schema.
 
-doc
-  This directory is where your application documentation will be stored when
-  generated using <tt>rake doc:app</tt>
 
-lib
-  Application specific libraries. Basically, any kind of custom code that
-  doesn't belong under controllers, models, or helpers. This directory is in
-  the load path.
+Short interview with Sam
+Mogannam of Bi-Rite:
 
-public
-  The directory available for the web server. Also contains the dispatchers and the
-  default HTML files. This should be set as the DOCUMENT_ROOT of your web
-  server.
 
-script
-  Helper scripts for automation and generation.
+http://youtu.be/LHfpEe_W9qQ
 
-test
-  Unit and functional tests along with fixtures. When using the rails generate
-  command, template test files will be generated for you and placed in this
-  directory.
 
-vendor
-  External libraries that the application depends on. Also includes the plugins
-  subdirectory. If the app has frozen rails, those gems also go here, under
-  vendor/rails/. This directory is in the load path.
+Jamie Oliver’s food
+revolution campaigns:
+http://www.jamieoliver.com
+/foundation/
+
+Existing resources
+One of the best sources of good produce in Ireland, and traditionally an important part of every 
+community, Co-ops and Farmers Markets are now on the outer fringes of food distribution. 
+Information on markets is notoriously difficult to source, in addition traders and market 
+organisers tend not to be technical and advertise very little.
+
+The following websites currently provide lists of markets: 
+http://www.bordbia.ie/aboutfood/farmersmarkets/pages/default.aspx http://www.countrymarkets.ie/
+http://irishfarmersmarkets.ie
+
+
+
+The shortcoming of these current sources is their static format. I aim to have regularly updated 
+information from organisers. MarketFinder will display information in an interactive format, 
+allowing users to narrow searches by location and date.
+
+
+
+3. Technical Approach
+
+To design the architecture of this application, I will employ an Agile/Iterative approach, using an 
+Object Oriented analysis and design process; beginning with requirements, then mapping the 
+interactions and classes, with a reassessment of requirements at designated times (Section 5), 
+allowing modifications according to constraints and progress. Further details on the application 
+architecture can be seen below in this Section.
+
+
+
+To establish the development methodology I have taken into account the scale of this project, and 
+the timelines and resources, as well as the use of a Rails framework, and I consider the most 
+feasible approach to be Rapid Application Development (RAD).
+
+The Ruby on Rails framework allows for an application structure to be put in place very quickly. 
+There is a requirement to produce an initial operable prototype weeks after submission of this 
+proposal and RAD using Rails will facilitate this. In addition, as I am developing this application 
+by myself and within a short timeframe, RAD is considered the appropriate methodology.
+
+Design of application architecture: Data model:
+
+
+4. Research
+
+
+
+Extensive research has been carried out of existing map applications, calendar applications and 
+event guides. None of these match our functionality however many, particularly those built with 
+Rails, are important references:
+
+
+Existing technology for reference
+
+
+http://www.wayfaring.com/ http://atlanta.metromix.com/ http://www.qype.co.uk/ 
+http://www.upout.com/sf
+
+
+http://railsrumble.com/entries/563-triptip-in
+
+http://railsrumble.com/entries/499-gigblender https://github.com/daybreaker/Close-Enough
+
+http://railscasts.com/episodes/273- geocoder
+
+http://railscasts.com/episodes/213- calendars
+
+http://geokit.rubyforge.org/
+
+
+
+Literature and online resources:
+Agile development with rails: Sam Ruby, Modern Javascript: Larry Ullman, Beginning
+Google Maps Applications with Rails and Ajax: Andre Lewis, Learn to Program: Chris Pine
+
+Teamtreehouse.com, Lynda.com, Slideshare.net, nptel.iitm.ac.in, ruby-toolbox.com, 
+Stackoverflow.com, Codecademy.com,  github.com, railscasts.com, guides.rubyonrails.org, 
+rubyonrails.org/testing
+
+
+
+
+
+5. Project Plan & Resources
+
+
+My starting point is to define functional and non -functional requirements, setting current and 
+future IT requirements, by engaging with potential end users and researching existing technologies 
+and resources.
+
+I have scheduled a Requirements Review to take place after prototype delivery, where I will 
+evaluate progress and assess whether additional features can be delivered, and how existing 
+features need to be modified. My next steps are outlined in the chart below.
+
+Resources
+Planning and development of this application will be carried out by me. I will liaise with NCI 
+lecturer and tutors for advice on feasibility and for guidance. I will refer to potential end users 
+for user test and evaluation.
+
+
+6. Technical Details
+
+●   This application’s infrastructure will be built using Rails 3.2.1 and Ruby 1.9.3 and
+MySQL
+
+●   Front-end: Twitter bootstrap, Javascripting, and JQuery
+
+●   Data Sources and Data APIs have yet to be defined
+
+●   Additional useful library, Gem and API requirements so far identified:
+
+
+7. Evaluation and testing
+
+
+
+
+I will avail of Rails Application Testing, an environment which can be built into the Rails 
+structure. The Rails YAML configuration file allows the set-up of test data without altering the 
+production environment. Within Rails, helpers are available for Unit, Functional and Integration 
+testing.
+
+Functional Evaluation: testing each functional requirement as set out in the Requirements 
+Specification document, and an assessment of the extent to which these have been met.
+
+Scenario Evaluation: ensure objectives such as search by location and by date have been met by 
+testing a variety of scenarios.
+
+User Evaluation: end-users of the site, both visitors and those who would promote events, will test 
+and evaluate the operation of the application.
+8. Consultations with Academic Staff
+
+
+Karen Rooney 21/02/13

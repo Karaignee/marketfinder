@@ -1,4 +1,7 @@
+
+<div class="page-header">
 <h1>Listing events</h1>
+</div>
 
 <table>
   <tr>
@@ -7,13 +10,16 @@
     <th>End</th>
     <th>Repeat</th>
     <th>Location</th>
-
     <th>Map</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @events.each do |event| %>
+<div class="event-item row-fluid">
+      <div class="span3">
+      </div>
+      
   <tr>
     <td><%= event.title %></td>
     <td><%= event.start %></td>
