@@ -14,6 +14,12 @@
  *= require_tree .
  */
 
+.navbar {
+	margin-bottom: 0px;
+	position: relative;
+	z-index: 10;
+}
+
 #main {
 	padding: 0 10px 10px 10px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.2);
