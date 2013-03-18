@@ -8,7 +8,22 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require bootstrap.css
  *= require_self
  *= require jquery.ui.all
  *= require_tree .
  */
+
+#main {
+	padding: 0 10px 10px 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.page-header {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.page-header p {
+	font-style: italic;
+}

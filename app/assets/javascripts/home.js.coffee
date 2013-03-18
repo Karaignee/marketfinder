@@ -5,7 +5,7 @@
 $ ->
   mapOptions =
     center: new google.maps.LatLng(53.346862, -6.264267),
-    zoom: 10,
+    zoom: 12,
     mapTypeId: google.maps.MapTypeId.ROADMAP
 
   map = new google.maps.Map (document.getElementById "mf-map"), mapOptions
