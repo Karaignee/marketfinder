@@ -1,23 +1,20 @@
-
-<% title "Event" %>
+<h1>
+	<%= @event.title  %>
+</h1>
 
 <p>
   <strong>Address:</strong>
-  <%= @event.address  %>
+  <%= @event.location  %>
 </p>
 <p>
-  <strong>Latitude:</strong>
-  <%= @event.latitude  %>
-</p>
-<p>
-  <strong>Longitude:</strong>
-  <%= @event.longitude  %>
+  <strong>Map:</strong>
+  <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=<%= @event.latitude %>,<%= @event.longitude %>&amp;spn=0.175236,0.152779&amp;t=m&amp;z=12&amp;output=embed"></iframe>
 </p>
 
 <h3>Nearby Events</h3>
 <ul>
 <% for event in @event.nearbys(30)  %>
-    <li><%=  link_to event.address, event %> (<%= event.distance.round(2) %></li>
+    <li><%=  link_to event.address, event %> (<%= event.distance.round(2) %>)</li>
 
 <% end %>
 </ul>
