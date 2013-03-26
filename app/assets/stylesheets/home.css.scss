@@ -2,8 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+  //tag means market finder map
 #mf-map {
 	width: 100%;
 	height: 400px;
+}
+
+#mf-calendar {
+  width: 100px;
+  height: 100px;
 }
