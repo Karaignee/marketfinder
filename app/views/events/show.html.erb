@@ -2,16 +2,21 @@
 	<%= @event.title  %>
 </h1>
 
-<p>
+<p class="lead">
   <strong>Address:</strong>
   <%= @event.location  %>
+
+
 </p>
 <p>
   <strong>Map:</strong>
+</p>
+<div class="hero-unit">
+
 <!--<%#= yield %>  map header should be ABOVE MAP   -->
   <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=<%= @event.latitude %>,<%= @event.longitude %>&amp;spn=0.175236,0.152779&amp;t=m&amp;z=12&amp;output=embed"></iframe>
-</p>
 
+</div>
 <p>
   <strong>Details:</strong>
   <%= @event.description  %>
