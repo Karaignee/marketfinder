@@ -22,6 +22,8 @@ $ ->
       content: event.description
     })
     
-    google.maps.event.addListener(marker, 'click', () ->
-      infowindow.open(map, marker)
-    )
+    ((infowindow, marker) ->
+      google.maps.event.addListener(marker, 'click', () ->
+        infowindow.open(map, marker)
+      )
+    )(infowindow, marker)
