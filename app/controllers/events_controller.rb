@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
+  before_filter :authenticate_user!
   def index
 
    if params[:search]
@@ -86,3 +87,5 @@ class EventsController < ApplicationController
     end
   end
 end
+
+

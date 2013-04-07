@@ -7,17 +7,24 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
+
 <body>
 	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container">
 				<a href="<%= root_path %>" class="brand">MarketFinder</a>
 				<a href="<%= events_path %>" class="brand">Event Listing</a>
+
 			</div>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
 		</div>	
 	</div>
 	<div id="main" class="container">
 		<%= yield %>
 	</div>
+
+
 </body>
 </html>

@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'geocoder'
 
 gem 'devise'
+gem 'cancan'
 
 
 
