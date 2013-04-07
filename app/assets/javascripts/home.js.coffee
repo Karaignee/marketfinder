@@ -19,7 +19,10 @@ $ ->
     })
     
     infowindow = new google.maps.InfoWindow({
-      content: event.description
+      content: """
+        <a href="events/#{event.id}"><h5>#{event.title}</h5></a>
+        <div>#{event.description ? 'No Description'}</div>
+      """
     })
     
     ((infowindow, marker) ->
