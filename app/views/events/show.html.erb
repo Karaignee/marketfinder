@@ -1,36 +1,42 @@
 <h1>
-	<%= @event.title  %>
+  <%= @event.title  %>
 </h1>
 
 <p class="lead">
-  <strong>Address:</strong>
-  <%= @event.location  %>
-
-
+  <strong>Address:</strong> <%= @event.location  %>
 </p>
-<p>
-  <strong>Map:</strong>
-</p>
-<div>
 
-<!--<%#= yield %>  map header should be ABOVE MAP   -->
-	<script type="text/javascript">
-		var longitude = '<%= @event.longitude %>';
-		var latitude = '<%= @event.latitude %>';
-	</script>
-	
-	<div id="indiv-map"></div>
+<script type="text/javascript">
+  var longitude = '<%= @event.longitude %>';
+  var latitude = '<%= @event.latitude %>';
+</script>
 
+<div class="row-fluid">
+  <div class="span6">
+    <div id="indiv-map"></div>
+  </div>
+  <div class="span6">
+    <p>
+      <strong>Starts On:</strong>
+      <%= @event.start.to_s(:simple)  %>
+    </p>
+
+    <p>
+      <strong>Ends On:</strong>
+      <%= @event.end.to_s(:simple)  %>
+    </p>
+
+    <p>
+      <strong>Details:</strong>
+      <%= @event.description  %>
+    </p>
+
+    <h3>Nearby Events</h3>
+    <ul>
+    <% for event in @event.nearbys(30)  %>
+        <li><%=  link_to event.location, event %> (<%= event.distance.round(2) %>)</li>
+
+    <% end %>
+    </ul>
+  </div>
 </div>
-<p>
-  <strong>Details:</strong>
-  <%= @event.description  %>
-</p>
-
-<h3>Nearby Events</h3>
-<ul>
-<% for event in @event.nearbys(30)  %>
-    <li><%=  link_to event.location, event %> (<%= event.distance.round(2) %>)</li>
-
-<% end %>
-</ul>
