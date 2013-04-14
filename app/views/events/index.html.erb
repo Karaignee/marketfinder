@@ -21,8 +21,8 @@
       
   <tr>
     <td><%= event.title %></td>
-    <td><%= event.start %></td>
-    <td><%= event.end %></td>
+    <td><%= event.start.to_s(:simple) %></td>
+    <td><%= event.end.to_s(:simple) %></td>
     <td><%= event.repeat %></td>
     <td><%= event.location %></td>
 
