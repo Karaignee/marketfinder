@@ -23,11 +23,7 @@
     <%= f.label :end %><br />
     <%= f.text_field :end, :class => "date", 'data-value' => @event.end ? @event.end.to_s(:simple) : '' %>
   </div>
-  <div class="field">
-    <%= f.label :repeat %><br />
-    <%= f.number_field :repeat %>
-  </div>
-  <div class="field">
+   <div class="field">
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
