@@ -22,7 +22,20 @@
     by date and find out live information on each event.  Thank you for visiting!!!
   </p>
   
-  <% @todays_events.each do |event| %>
-    <div><%= event.title %></div>
-  <% end %>
+  <div id="calendar" class="row">
+    <div class="span6">
+      <h2>On Today</h2>
+      
+      <% @todays_events.each do |event| %>
+        <div><%= event.title %></div>
+      <% end %>
+    </div>
+    <div class="span6">
+      <h2>Coming Up</h2>
+      
+      <% @upcoming.each do |event| %>
+        <div><%= event.title %></div>
+      <% end %>
+    </div>
+  </div>
 </div>
