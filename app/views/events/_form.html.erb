@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :start %><br />
-    <%= f.text_field :start, :class => "date", 'data-value' => @event.start.to_s(:simple) %>
+    <%= f.text_field :start, :class => "date", 'data-value' => @event.start ? @event.start.to_s(:simple) : '' %>
   </div>
   <div class="field">
     <%= f.label :end %><br />
-    <%= f.text_field :end, :class => "date", 'data-value' => @event.end.to_s(:simple) %>
+    <%= f.text_field :end, :class => "date", 'data-value' => @event.end ? @event.end.to_s(:simple) : '' %>
   </div>
   <div class="field">
     <%= f.label :repeat %><br />
