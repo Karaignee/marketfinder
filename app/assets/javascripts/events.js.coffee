@@ -3,3 +3,4 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
   $('.date').datepicker()
+  $('.date').datepicker( "option", "dateFormat", "dd/mm/yy");
