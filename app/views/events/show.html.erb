@@ -14,7 +14,12 @@
 <div>
 
 <!--<%#= yield %>  map header should be ABOVE MAP   -->
-  <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=<%= @event.latitude %>,<%= @event.longitude %>&amp;spn=0.175236,0.152779&amp;t=m&amp;z=12&amp;output=embed"></iframe>
+	<script type="text/javascript">
+		var longitude = '<%= @event.longitude %>';
+		var latitude = '<%= @event.latitude %>';
+	</script>
+	
+	<div id="indiv-map"></div>
 
 </div>
 <p>
