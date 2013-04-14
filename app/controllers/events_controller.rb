@@ -6,9 +6,9 @@ class EventsController < ApplicationController
   
   def index
     if params[:search]
-      @events = Event.near(params[:search], 10, :order => :distance)
+      @events = Event.near(params[:search], 10, :order => :start)
     else
-      @events = Event.all
+      @events = Event.all(:order => :start)
     end
     
     respond_to do |format|
