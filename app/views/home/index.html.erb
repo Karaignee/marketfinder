@@ -21,6 +21,8 @@
   <p>This site is under construction!! Soon, you will find additional features whereby you will be able to search
     by date and find out live information on each event.  Thank you for visiting!!!
   </p>
-
-
+  
+  <% @todays_events.each do |event| %>
+    <div><%= event.title %></div>
+  <% end %>
 </div>

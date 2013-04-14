@@ -5,13 +5,12 @@ class EventsController < ApplicationController
   #before_filter :authenticate_user!
   
   def index
-
-   if params[:search]
+    if params[:search]
       @events = Event.near(params[:search], 10, :order => :distance)
     else
       @events = Event.all
     end
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
