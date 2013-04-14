@@ -27,7 +27,10 @@
       <h2>On Today</h2>
       
       <% @todays_events.each do |event| %>
-        <div><%= event.title %></div>
+        <div class="event-box">
+          <div class="event-box-title"><a href="<%= "#{events_path}/#{event.id}" %>"><%= event.title %></a></div>
+          <div class="event-box-blurb"><%= truncate(event.description, :length => 140) %></div>
+        </div>
       <% end %>
     </div>
     <div class="span6">
