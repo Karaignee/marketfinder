@@ -6,10 +6,33 @@
   <strong>Address:</strong> <%= @event.location  %>
 </p>
 
+<div> <!--here we are making a place in the page for weather data-->
+  <img id="weather_icon" src="" style="display: none" />
+  <span id="weather_description"></span>
+  <span id="weather_c" ></span> c
+</div>
+<!-- -->
 <script type="text/javascript">
   var longitude = '<%= @event.longitude %>';
   var latitude = '<%= @event.latitude %>';
+  
+  // this comment ties in with comment below
+  function weather_response(response) {
+  //the response param will be the API data which was reutned as json and pulls the info we want ie icon and weather
+    var description = response.current_observation.weather;
+    var icon_url = response.current_observation.icon_url;
+    var c_temp = response.current_observation.feelslike_c;
+    
+    // place the api data into the placeholder elements
+    $("#weather_description").text(description);
+    $("#weather_icon").attr("src", icon_url).show();
+    $("#weather_c").text(c_temp);
+    
+    //console.log(response);
+  }
 </script>
+<!-- this comment ties in with the one above in script. here i'm constructing the API URL with erb tags. then the json is wrapped in a callback which relates to the function defined above so that it gets executed as javascript code -->
+<script type="text/javascript" src="http://api.wunderground.com/api/a24713c7bf5ea32c/conditions/q/<%= @event.latitude %>,<%= @event.longitude %>.json?callback=weather_response"></script>
 
 <div class="row-fluid">
   <div class="span6">
