@@ -41,12 +41,12 @@
   <div class="span6">
     <p>
       <strong>Starts On:</strong>
-      <%= @event.start.to_s(:simple)  %>
+      <%= @event.start.strftime('%d/%m/%Y') if @event.start  %>
     </p>
 
     <p>
       <strong>Ends On:</strong>
-      <%= @event.end.to_s(:simple)  %>
+      <%= @event.end.strftime('%d/%m/%Y') if @event.end  %>
     </p>
 
     <p>
@@ -58,7 +58,6 @@
     <ul>
     <% for event in @event.nearbys(30)  %>
         <li><%=  link_to event.location, event %> (<%= event.distance.round(2) %>)</li>
-
     <% end %>
     </ul>
   </div>

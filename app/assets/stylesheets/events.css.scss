@@ -11,3 +11,13 @@
 	width: 100%;
 	height: 300px;
 }
+
+#mf-map img,
+#indiv-map img {
+  max-width: none;
+}
+
+#mf-map label,
+#indiv-map label {
+  width: auto; display:inline;
+}
