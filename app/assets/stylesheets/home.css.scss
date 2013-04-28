@@ -8,15 +8,15 @@
 	height: 400px;
 }
 
-#mf-calendar {
-  width: 100px;
-  height: 100px;
-}
-
-#calendar h4 {
+#event-lists h2 {
 	text-align: center;
+	border-bottom: 1px solid #eee;
 }
 
 .calendar td {
 	width: 14%;
+}
+
+.calendar td a {
+	
 }

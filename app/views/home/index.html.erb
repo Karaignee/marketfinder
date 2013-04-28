@@ -15,10 +15,11 @@
   
   <div class="span4">
     
-    <div id="calendar">
+    <div id="event-lists">
       <div class="">
         <h2>On Today</h2>
         
+        <%= if (@todays_events.length == 0) then "No events today!" end %> 
         <% @todays_events.each do |event| %>
           <div class="event-box">
             <div class="event-box-title"><a href="<%= "#{events_path}/#{event.id}" %>"><%= event.title %></a></div>
@@ -29,6 +30,7 @@
       <div class="">
         <h2>Coming Up</h2>
         
+        <%= if (@upcoming.length == 0) then "No upcoming events!" end %> 
         <% @upcoming.each do |event| %>
           <div class="row-fluid">
             <div class="span8"><a href="<%= "#{events_path}/#{event.id}" %>"><%= event.title %></a></div>
