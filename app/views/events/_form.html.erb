@@ -44,6 +44,8 @@
 
 <script>
     var is_form_valid = function () {
+        
+        // made title, location and description validation less strict
 
         var display_error = function (input, msg) {
             $(input).parents(".field")
@@ -57,9 +59,12 @@
             var input = $("#event_title");
             var value = $(input).val().trim();
             $(input).val(value);
+            
+            if (value == "") return display_error(input, "Title cannot be blank");
 
-            var regex = /^[a-z0-9 -]{3,50}$/i;
-            if (!value.match(regex)) return display_error(input, "Title must be between 3 and 50 alphabetical characters");
+            //var regex = /^[a-z0-9 -]{3,50}$/i;
+            //if (!value.match(regex)) return display_error(input, "Title must be between 3 and 50 alphabetical characters");
+            
             return true;
         }
 
@@ -81,14 +86,17 @@
             var input = $("#event_end");
             return is_date_valid(input, "End date");
         }
-
+        
         var is_location_valid = function () {
             var input = $("#event_location");
             var value = $(input).val().trim();
             $(input).val(value);
+            
+            if (value == "") return display_error(input, "Location cannot be blank");
 
-            var regex = /^[a-z0-9 -]{3,50}$/i;
-            if (!value.match(regex)) return display_error(input, "Location must be between 3 and 50 alphabetical characters");
+            //var regex = /^[a-z0-9 -]{3,50}$/i;
+            //if (!value.match(regex)) return display_error(input, "Location must be between 3 and 50 alphabetical characters");
+            
             return true;
         }
 
@@ -96,9 +104,12 @@
             var input = $("#event_description");
             var value = $(input).val().trim();
             $(input).val(value);
+            
+            if (value == "") return display_error(input, "Description cannot be blank");
 
-            var regex = /^[a-z0-9 -]{3,50}$/i;
-            if (!value.match(regex)) return display_error(input, "Description must be between 3 and 50 alphabetical characters");
+            //var regex = /^[a-z0-9 -]{3,50}$/i;
+            //if (!value.match(regex)) return display_error(input, "Description must be between 3 and 50 alphabetical characters");
+            
             return true;
         }
 
