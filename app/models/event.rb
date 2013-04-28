@@ -5,9 +5,9 @@ class Event < ActiveRecord::Base
   
   validates :title, :presence => true
   
-  validates :start, :format => {:with => /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/((19|20)[0-9]{2})$/i}
+  #validates :start, :format => {:with => /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/((19|20)[0-9]{2})$/i}
   
-  validates :end, :format => {:with => /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/((19|20)[0-9]{2})$/i}
+  #validates :end, :format => {:with => /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/((19|20)[0-9]{2})$/i}
   
   validates :location, :presence => true
   
