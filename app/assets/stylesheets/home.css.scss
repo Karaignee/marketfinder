@@ -20,3 +20,22 @@
 .calendar td a {
 	
 }
+
+#pan {
+	padding: 0;
+	height: 500px;
+	
+	background-image: url('/assets/pan.jpg');
+	background-position: center 0;
+}
+
+#pan h2 {
+	padding-top: 50px;
+	
+	font-size: 40px;
+	text-shadow: 1px 1px 0 white;
+}
+
+#pan p {
+	font-size: 22px;
+}
