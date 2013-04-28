@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @eventJSON = Event.all.to_json
+    @events = Event.all
     
     @today = Time.now.beginning_of_day()
     @todays_events = Event.where("start <= ? AND end >= ?", @today, @today)

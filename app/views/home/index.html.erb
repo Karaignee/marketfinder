@@ -1,4 +1,3 @@
-
 <div class="page-header">
 <h2>Welcome to MarketFinder</h2>
 <p>There's loads of great fresh food near you, we help you find it</p>
@@ -8,29 +7,45 @@
 	var eventData = <%= @eventJSON.html_safe %>
 </script>
 
-<div id="mf-map"></div>
+<div class="row">
+  
+  <div class="span8">
+    <div id="mf-map"></div>
+  </div>
+  
+  <div class="span4">
+    
+    <div id="calendar">
+      <div class="">
+        <h2>On Today</h2>
+        
+        <% @todays_events.each do |event| %>
+          <div class="event-box">
+            <div class="event-box-title"><a href="<%= "#{events_path}/#{event.id}" %>"><%= event.title %></a></div>
+            <div class="event-box-blurb"><%= truncate(event.description, :length => 140) %></div>
+          </div>
+        <% end %>
+      </div>
+      <div class="">
+        <h2>Coming Up</h2>
+        
+        <% @upcoming.each do |event| %>
+          <div class="row-fluid">
+            <div class="span8"><a href="<%= "#{events_path}/#{event.id}" %>"><%= event.title %></a></div>
+            <div class="span4"><%= event.start.to_s(:simple) %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
 
 <div>
-  <div id="calendar" class="row-fluid">
-    <div class="span6">
-      <h2>On Today</h2>
-      
-      <% @todays_events.each do |event| %>
-        <div class="event-box">
-          <div class="event-box-title"><a href="<%= "#{events_path}/#{event.id}" %>"><%= event.title %></a></div>
-          <div class="event-box-blurb"><%= truncate(event.description, :length => 140) %></div>
-        </div>
-      <% end %>
-    </div>
-    <div class="span6">
-      <h2>Coming Up</h2>
-      
-      <% @upcoming.each do |event| %>
-        <div class="row-fluid">
-          <div class="span8"><a href="<%= "#{events_path}/#{event.id}" %>"><%= event.title %></a></div>
-          <div class="span4"><%= event.start.to_s(:simple) %></div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+
 </div>
+
+<%= calendar @events do |event| %>
+  <div><%= link_to event.title, event %></div>
+<% end %>
