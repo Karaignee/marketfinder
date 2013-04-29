@@ -10,7 +10,9 @@ class EventsController < ApplicationController
     else
       @events = Event.all(:order => :start)
     end
-    
+
+   # @events.reject { |evt| evt.start.nil? or evt.end.nil? }
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
