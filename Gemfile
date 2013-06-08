@@ -16,8 +16,6 @@ group :assets do
 end
 
 gem 'geocoder'
-gem 'devise'
-gem 'cancan'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
