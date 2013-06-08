@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413225209) do
+ActiveRecord::Schema.define(:version => 20130608224110) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20130413225209) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.text     "description"
+  end
+
+  create_table "repeat_periods", :force => true do |t|
+    t.string   "name"
+    t.integer  "every_x"
+    t.boolean  "daily"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
