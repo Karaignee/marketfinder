@@ -11,19 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608224110) do
+ActiveRecord::Schema.define(:version => 20130609110600) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
-    t.datetime "start",       :limit => 255
-    t.datetime "end",         :limit => 255
+    t.datetime "start",            :limit => 255
+    t.datetime "end",              :limit => 255
     t.integer  "repeat"
     t.string   "location"
     t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.text     "description"
+    t.integer  "repeat_period_id"
   end
 
   create_table "repeat_periods", :force => true do |t|

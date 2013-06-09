@@ -50,6 +50,11 @@
     </p>
 
     <p>
+      <strong>Takes place:</strong>
+      <%= RepeatPeriod.find(@event.repeat_period_id).name  %>
+    </p>
+
+    <p>
       <strong>Details:</strong>
       <%= @event.description  %>
     </p>
