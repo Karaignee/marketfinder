@@ -52,6 +52,7 @@
     <p>
       <strong>Takes place:</strong>
       <%= RepeatPeriod.find(@event.repeat_period_id).name  %>
+      <%= @event.repeat_period.name %>
     </p>
 
     <p>
@@ -61,9 +62,11 @@
 
     <h3>Nearby Events</h3>
     <ul>
-    <% for event in @event.nearbys(30)  %>
-        <li><%=  link_to event.location, event %> (<%= event.distance.round(2) %>)</li>
-    <% end %>
+      <% if @event.nearbys(30) %>
+        <% @event.nearbys(30).each do |event|  %>
+            <li><%= link_to event.location, event %> (<%= event.distance.round(2) %>)</li>
+        <% end %>
+      <% end %>
     </ul>
   </div>
 </div>

@@ -3,12 +3,12 @@
 #
 #       these are seed default values for the repeat period model
 RepeatPeriod.delete_all
-RepeatPeriod.create({name: "Daily", every_x: 1, days: true  })       #1
-RepeatPeriod.create({name: "Weekly", every_x: 7, days: true })         #2
-RepeatPeriod.create({name: "Fortnightly", every_x: 14, days:true })      #3
-RepeatPeriod.create({name: "Monthly", every_x: 30, days:false })           #4
-RepeatPeriod.create({name: "Three Months", every_x: 90, days:false })        #5
+RepeatPeriod.create({name: "Daily", every_x: 1, daily: true  })       #1
+RepeatPeriod.create({name: "Weekly", every_x: 7, daily: true })         #2
+RepeatPeriod.create({name: "Fortnightly", every_x: 14, daily: true })      #3
+RepeatPeriod.create({name: "Monthly", every_x: 30, daily: false })           #4
+RepeatPeriod.create({name: "Three Months", every_x: 90, daily: false })        #5
 
-puts"everything is wonderful"
+puts 'everything is wonderful'
 
 
